@@ -5,6 +5,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // VARIABLES
+    AudioSource audioSource;
+    //play sound
+    bool r_Play;
+    // Detect toggle
+    bool r_ToggleChange;
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float roatationSpeed = 1f;
     Rigidbody rb;
@@ -13,7 +18,12 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Audio Source
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
+        //Rigidbody
         rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +40,14 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)) {
 
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+
+            //Checks to see if audio is playing
+            if (!audioSource.isPlaying) {
+                audioSource.Play();
+            }
+            
+        } else if (!Input.GetKey(KeyCode.Space)) {
+            audioSource.Stop();
         }
     }
 
