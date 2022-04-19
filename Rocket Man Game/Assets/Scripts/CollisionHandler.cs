@@ -1,8 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
+    
+    void RestartScene() 
+    {
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
 
     void OnCollisionEnter(Collision other) 
     {
@@ -15,9 +21,10 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Level Complete");
                 break;
             case "Fuel":
-                Debug.Log("Fuel Refilled");
+                Debug.Log("Fuel Refilled"); 
                 break;
             case "Obstacle":
+                RestartScene();
                 Debug.Log("You hit an Obstacle!");
                 break;
             default:
