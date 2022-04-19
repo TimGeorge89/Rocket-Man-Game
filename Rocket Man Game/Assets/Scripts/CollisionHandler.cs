@@ -5,9 +5,10 @@ public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
     
-    void RestartScene() 
+    void ReloadLevel() 
     {
-        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     void OnCollisionEnter(Collision other) 
@@ -24,7 +25,8 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Fuel Refilled"); 
                 break;
             case "Obstacle":
-                RestartScene();
+                //Resets Scene to Start of current level.
+                ReloadLevel();
                 Debug.Log("You hit an Obstacle!");
                 break;
             default:
