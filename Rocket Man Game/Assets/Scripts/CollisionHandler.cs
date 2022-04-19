@@ -4,11 +4,25 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
-    
+
+
+    //Reloads Current Level
     void ReloadLevel() 
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    // Loads next level
+    void NextLevel() 
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) 
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     void OnCollisionEnter(Collision other) 
@@ -19,7 +33,8 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Launch");
                 break;
             case "Finish":
-                Debug.Log("Level Complete");
+                // Loads next level
+                NextLevel();
                 break;
             case "Fuel":
                 Debug.Log("Fuel Refilled"); 
@@ -27,7 +42,6 @@ public class CollisionHandler : MonoBehaviour
             case "Obstacle":
                 //Resets Scene to Start of current level.
                 ReloadLevel();
-                Debug.Log("You hit an Obstacle!");
                 break;
             default:
                 Debug.Log("You Died");
