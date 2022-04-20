@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     // VARIABLES
     AudioSource audioSource;
+    
     //play sound
     bool r_Play;
     // Detect toggle

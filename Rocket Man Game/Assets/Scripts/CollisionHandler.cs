@@ -34,18 +34,26 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 // Loads next level
-                NextLevel();
+                Invoke("NextLevel", 2);
                 break;
             case "Fuel":
                 Debug.Log("Fuel Refilled"); 
                 break;
             case "Obstacle":
                 //Resets Scene to Start of current level.
-                ReloadLevel();
+                StartCrashSequence();
                 break;
             default:
                 Debug.Log("You Died");
                 break;
         }
+    }
+
+    void StartCrashSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        GetComponent<AudioSource>().enabled = false;
+        Invoke("ReloadLevel", 0.8f);
+        
     }
 }
