@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
-
+    [SerializeField] float invokeDelay = 1.5f;
 
     //Reloads Current Level
     void ReloadLevel() 
@@ -34,7 +34,7 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 // Loads next level
-                Invoke("NextLevel", 2);
+                StartLevelProgression();
                 break;
             case "Fuel":
                 Debug.Log("Fuel Refilled"); 
@@ -48,12 +48,21 @@ public class CollisionHandler : MonoBehaviour
                 break;
         }
     }
-
+    
+    // Removes player control and sound on Collision
     void StartCrashSequence()
     {
         GetComponent<Movement>().enabled = false;
         GetComponent<AudioSource>().enabled = false;
-        Invoke("ReloadLevel", 0.8f);
+        Invoke("ReloadLevel", invokeDelay);
+        
+    }
+
+    void StartLevelProgression()
+    {
+        GetComponent<Movement>().enabled = false;
+        GetComponent<AudioSource>().enabled = false;
+        Invoke("NextLevel", invokeDelay);
         
     }
 }
