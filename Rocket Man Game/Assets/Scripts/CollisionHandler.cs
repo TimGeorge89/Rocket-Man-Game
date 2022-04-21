@@ -4,10 +4,14 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
-    AudioSource audioSource;
     [SerializeField] float invokeDelay = 1.5f;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip successJingle;
+
+    AudioSource audioSource;
+
+    //STATE
+    bool isTransitioning = false;
 
     void Start ()
     {
@@ -35,6 +39,7 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
+        if (isTransitioning) {return;}
 
         switch (other.gameObject.tag) 
         {
@@ -61,18 +66,20 @@ public class CollisionHandler : MonoBehaviour
     // Removes player control and sound on Collision
     void StartCrashSequence()
     {
+        isTransitioning = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(explosion);
         GetComponent<Movement>().enabled = false;
-        GetComponent<AudioSource>().enabled = false;
         Invoke("ReloadLevel", invokeDelay);
         
     }
 
     void StartLevelProgression()
     {
+        isTransitioning = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(successJingle);
         GetComponent<Movement>().enabled = false;
-        //GetComponent<AudioSource>().enabled = false;
         Invoke("NextLevel", invokeDelay);
         
     }
