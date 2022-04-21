@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1563889357}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31695cfe8f7d38a4d8d48dd08407ff8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invokeDelay: 1
 --- !u!114 &1563889357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31695cfe8f7d38a4d8d48dd08407ff8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invokeDelay: 1

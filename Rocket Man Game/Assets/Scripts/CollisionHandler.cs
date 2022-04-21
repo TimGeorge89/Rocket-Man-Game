@@ -4,7 +4,15 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     //VARIABLES
+    AudioSource audioSource;
     [SerializeField] float invokeDelay = 1.5f;
+    [SerializeField] AudioClip explosion;
+    [SerializeField] AudioClip successJingle;
+
+    void Start ()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     //Reloads Current Level
     void ReloadLevel() 
@@ -27,6 +35,7 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
+
         switch (other.gameObject.tag) 
         {
             case "Friendly":
@@ -52,6 +61,7 @@ public class CollisionHandler : MonoBehaviour
     // Removes player control and sound on Collision
     void StartCrashSequence()
     {
+        audioSource.PlayOneShot(explosion);
         GetComponent<Movement>().enabled = false;
         GetComponent<AudioSource>().enabled = false;
         Invoke("ReloadLevel", invokeDelay);
@@ -60,8 +70,9 @@ public class CollisionHandler : MonoBehaviour
 
     void StartLevelProgression()
     {
+        audioSource.PlayOneShot(successJingle);
         GetComponent<Movement>().enabled = false;
-        GetComponent<AudioSource>().enabled = false;
+        //GetComponent<AudioSource>().enabled = false;
         Invoke("NextLevel", invokeDelay);
         
     }

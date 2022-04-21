@@ -5,15 +5,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // VARIABLES
-    AudioSource audioSource;
-    
-    //play sound
-    bool r_Play;
-    // Detect toggle
-    bool r_ToggleChange;
+    Rigidbody rb;
+    AudioSource audioSource; 
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float roatationSpeed = 1f;
-    Rigidbody rb;
+    [SerializeField] AudioClip mainEngine;
+    
     
     
     // Start is called before the first frame update
@@ -44,7 +41,7 @@ public class Movement : MonoBehaviour
 
             //Checks to see if audio is playing
             if (!audioSource.isPlaying) {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
             
         } else if (!Input.GetKey(KeyCode.Space)) {

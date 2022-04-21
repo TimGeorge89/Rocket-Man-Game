@@ -663,10 +663,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1116420157, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
-      propertyPath: invokeDelay
-      value: 1.5
+    - target: {fileID: 249139027, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 249139032, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: 72b7f2ba37602ac46aa88cae45160c16, type: 3}
+    - target: {fileID: 1116420157, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 8300000, guid: e431152ea29a5ca4aadb03714d9eca81, type: 3}
+    - target: {fileID: 1116420157, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
+      propertyPath: mainEngine
+      value: 
+      objectReference: {fileID: 8300000, guid: 72b7f2ba37602ac46aa88cae45160c16, type: 3}
+    - target: {fileID: 1116420157, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
+      propertyPath: successJingle
+      value: 
+      objectReference: {fileID: 8300000, guid: 44db68ac4384013428a0d176ec6bc312, type: 3}
     - target: {fileID: 5230989211763553243, guid: dcf4140347e99e8428710c5f4e032f3d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -841,10 +857,6 @@ PrefabInstance:
     - target: {fileID: 9216169668490532602, guid: 312f4a79c43d29c47993c4e9699d2ab3, type: 3}
       propertyPath: m_Name
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216169668490532602, guid: 312f4a79c43d29c47993c4e9699d2ab3, type: 3}
-      propertyPath: m_TagString
-      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 9216169668490532606, guid: 312f4a79c43d29c47993c4e9699d2ab3, type: 3}
       propertyPath: m_RootOrder
