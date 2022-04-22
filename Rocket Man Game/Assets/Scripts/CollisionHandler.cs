@@ -16,10 +16,27 @@ public class CollisionHandler : MonoBehaviour
 
     //STATE
     bool isTransitioning = false;
+    bool collisionDisabled = false;
 
-    void Start ()
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        SkipLevelCheat();
+    }
+
+    void SkipLevelCheat()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            NextLevel();
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            // toggle collision
+            collisionDisabled = !collisionDisabled;
+        }
     }
 
     //Reloads Current Level
@@ -43,7 +60,7 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
-        if (isTransitioning) {return;}
+        if (isTransitioning || collisionDisabled) {return;}
 
         switch (other.gameObject.tag) 
         {
