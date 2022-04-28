@@ -58,6 +58,7 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
     }
 
+    // Collision handler
     void OnCollisionEnter(Collision other) 
     {
         if (isTransitioning || collisionDisabled) {return;}

@@ -140,8 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bb3bebac19f254ea354e5c7861ee9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 8, y: 0, z: 0}
+  movementVector: {x: 10, y: 0, z: 0}
   movementFactor: 0
+  period: 2
 --- !u!4 &34570341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1968411141565416397, guid: 8d8ff277eb21c184298153dabfed1e7d, type: 3}
@@ -826,7 +827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1968411141565416397, guid: 8d8ff277eb21c184298153dabfed1e7d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.315771
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1968411141565416397, guid: 8d8ff277eb21c184298153dabfed1e7d, type: 3}
       propertyPath: m_LocalPosition.y
